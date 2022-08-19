@@ -1,5 +1,5 @@
 {
-	"homepage": "http://jayannthan.github.io/",
+	"homepage": "http://jayannthan.github.io/birthdayreminder",
 	"name": "birthdayreminder",
 	"version": "0.1.0",
 	"private": true,
@@ -9,6 +9,7 @@
 		"@testing-library/user-event": "^13.5.0",
 		"bootstrap": "^5.2.0",
 		"date-fns-tz": "^1.3.6",
+		"package": "^1.0.1",
 		"react": "^18.2.0",
 		"react-bootstrap": "^2.4.0",
 		"react-dom": "^18.2.0",
@@ -20,7 +21,7 @@
 		"start": "react-scripts start",
 		"predeploy": "npm run build",
 		"deploy": "gh-pages -d build",
-		"build": "react-scripts build",
+		"build": "react-scripts build && cp build/index.html build/404.html",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject"
 	},

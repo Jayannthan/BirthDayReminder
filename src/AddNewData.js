@@ -6,38 +6,67 @@ class AddNewData extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			name: '',
-			dob: '',
-			comments: ''
+			name: "",
+			dob: "",
+			comments: ""
 		}
 	}
 
 	onNameChange = (event) => {
 		this.setState({ name: event.target.value })
+		console.log(this.state);
+
 	}
 
 	onDOBChange = (event) => {
-		this.setState({ dob: event.target.value })
-		// console.log(this.state)
+		this.setState({ dob: new Date(event.target.value).toISOString().slice(0, 10) + "T00:00:00.000Z" })
+		console.log(this.state);
 	}
 
 	onCommentsChange = (event) => {
 		this.setState({ comments: event.target.value })
+		console.log(this.state);
+
 	}
 
 	onAddClick = () => {
 		console.log(this.state)
+		// console.log(JSON.stringify
+		// 	({
+		// 		name: this.state.name,
+		// 		dob: this.state.dob,
+		// 		comments: this.state.comments
+		// 	}))
 
-		fetch('https://git.heroku.com/secret-tor-05434.git/register', {
-			method: 'post',
-			headers: { 'Content-Type': 'application/json' },
+		// fetch('https://secret-tor-05434.herokuapp.com/register', {
+		// 	method: 'POST',
+		// 	headers: { 'Content-Type': 'application/json' },
+		// 	body: JSON.stringify({
+		// 		name: this.state.name,
+		// 		dob: this.state.dob,
+		// 		comments: this.state.comments
+		// 	})
+		// })
+		// 	.then(response => console.log(response.json()))
+		// 	.catch(err => {
+		// 		console.log(err);
+		// 	})
+
+		fetch("http://secret-tor-05434.herokuapp.com/register", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json"
+			},
 			body: JSON.stringify({
 				name: this.state.name,
 				dob: this.state.dob,
 				comments: this.state.comments
 			})
 		})
-			.then(response => console.log(response.json()))
+			// .then((response) => console.log(response.status))
+			.catch((err) => {
+				console.log(err);
+			});
 		// .then(people => {
 		// 	if (people) {
 		// 		this.props.loadUser(people)
