@@ -28,7 +28,7 @@ class AddNewData extends Component {
 	onAddClick = () => {
 		console.log(this.state)
 
-		fetch('http://localhost:3000/register', {
+		fetch('https://git.heroku.com/secret-tor-05434.git/register', {
 			method: 'post',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({

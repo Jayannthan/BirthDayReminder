@@ -15,10 +15,10 @@ class App extends Component {
 			people: []
 		}
 	}
-	
+
 	componentDidMount() {
 		this.getDate();
-		fetch('http://localhost:3000/list')
+		fetch('https://git.heroku.com/secret-tor-05434.git/list')
 			.then(response => response.json())
 			.then(people => {
 				this.setState({ people: people });
