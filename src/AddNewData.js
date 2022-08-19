@@ -52,7 +52,7 @@ class AddNewData extends Component {
 		// 		console.log(err);
 		// 	})
 
-		fetch("http://secret-tor-05434.herokuapp.com/register", {
+		fetch("https://secret-tor-05434.herokuapp.com/register", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
